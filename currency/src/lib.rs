@@ -1,2 +1,1 @@
 mod doller;
-mod test;
