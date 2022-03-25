@@ -19,13 +19,14 @@ class TestCase:
     def run(self,result: TestResult) -> None:
         result.testStarted()
         print(self.name)
-        self.setUp()
         try:
+            self.setUp()
             method = getattr(self, self.name)
             method()
         except:
             result.testFailed()
-        self.tearDown()
+        finally:
+            self.tearDown()
 
 class TestSuite:
     def __init__(self) -> None:
